@@ -37,11 +37,11 @@ namespace Demos.Day4.WebAPI.Controllers
         [HttpGet("getById")]
         public ActionResult<Auto> Get(int id)
         {
-            foreach (var item in Autos)
-            {
-                if (item.Id == id)
-                    return Ok(item);
-            }
+            var predicate = (Auto auto) => auto.Id == id;
+            var match = Autos.FirstOrDefault(predicate);
+
+            if (match != null)
+                return Ok(match);
 
             return NotFound();
         }
@@ -49,6 +49,9 @@ namespace Demos.Day4.WebAPI.Controllers
         [HttpGet("getByMerkNaam")]
         public ActionResult<IEnumerable<Auto>> Get(string merkNaam)
         {
+            return Ok(Autos.Where(auto => auto.MerkNaam == merkNaam));
+
+            /*
             var results = new List<Auto>();
             foreach (var item in Autos)
             {
@@ -57,6 +60,7 @@ namespace Demos.Day4.WebAPI.Controllers
             }
 
             return Ok(results);
+            */
         }
 
         [HttpPost]

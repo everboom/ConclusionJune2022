@@ -9,7 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var connString = "Data Source=(LocalDb)\\MSSQLLocalDb;Initial Catalog=CourseDb";
+var connString = builder.Configuration["ConnectionStrings:CourseDbContext"];
 builder.Services.AddSqlServer<CourseDbContext>(connString);
 
 var app = builder.Build();

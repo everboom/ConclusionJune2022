@@ -4,6 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>85259f2f-685f-41f7-9f66-21a9221a311b</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,6 +18,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.6" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
